@@ -13,6 +13,14 @@ var Records = React.createClass({
     this.setState({records: records});
   },
 
+
+  updateRecord: function(record, data) {
+    var index = this.state.records.indexOf(record);
+    var records = React.addons.update(this.state.records,
+                                      { $splice: [[index, 1, data]] });
+                                      this.replaceState({ records: records });
+  },
+
   credits: function(){
     credits = this.state.records.filter(function(val){ 
       return val.amount >= 0
@@ -36,7 +44,6 @@ var Records = React.createClass({
   },
 
   deleteRecord: function(record){
-    debugger;
     records = this.state.records.slice();
     index = records.indexOf(record);
     records.splice(index,1)
@@ -65,13 +72,15 @@ var Records = React.createClass({
               <th> Date </th>
               <th> Title </th>
               <th> Amount </th>
-              <th> Actions </th>
+              <th colSpan='2'> Actions </th>
             </tr>
           </thead>
           <tbody>
             {this.state.records.map(function(record) {
-              return <Record key={record.id} record={record}
+              return <Record key={record.id}
+                record={record}
                 handleDeleteRecord={this.deleteRecord}
+                handleEditRecord={this.updateRecord}
               />
               }.bind(this))}
           </tbody>
