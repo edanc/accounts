@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930023037) do
+ActiveRecord::Schema.define(version: 20151121213147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "logs", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "records", force: true do |t|
     t.string   "title"
@@ -22,6 +27,23 @@ ActiveRecord::Schema.define(version: 20150930023037) do
     t.float    "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tire_line_items", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "units",                                 null: false
+    t.decimal  "total_amount", precision: 20, scale: 2, null: false
+    t.text     "tire_type",                             null: false
+    t.text     "unit_amount",                           null: false
+    t.integer  "log_id",                                null: false
+  end
+
+  create_table "tire_sizes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "size",              null: false
+    t.integer  "tire_line_item_id", null: false
   end
 
 end

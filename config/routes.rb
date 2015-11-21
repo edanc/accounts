@@ -1,5 +1,7 @@
 Accounts::Application.routes.draw do
 
+  resources :logs
+
   root 'records#index'
   resources :records
 
