@@ -1,10 +1,9 @@
-<h1>Listing logs</h1>
+<h1>Logs</h1>
 
-<table>
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
+      <th>Date</th>
       <th></th>
     </tr>
   </thead>
@@ -12,14 +11,17 @@
   <tbody>
     <% @logs.each do |log| %>
       <tr>
-        <td><%= link_to 'Show', log %></td>
-        <td><%= link_to 'Edit', edit_log_path(log) %></td>
-        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% binding.pry %>
+          <%= l(log.created_at, format: :long) %>
+        </td>
+        <td>
+        <%= link_to("View", log_path(log)) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
-<%= link_to 'New Log', new_log_path %>
+<%= link_to 'New Log', logs_path, method: :post %>

@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
   <title>Accounts</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+    <!-- Title -->
+      <span class="mdl-layout-title">Title</span>
+    <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
 
-<%= yield %>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <%= content_tag(:a, "Logs", href: logs_path, class: ["mdl-layout__tab", "is-active"]) %>
+      <%= content_tag(:a, "Records", href: records_path, class: ["mdl-layout__tab", "is-active"]) %>
+    </div>
+  </header>
 
-</body>
+ <main class="mdl-layout__content">
+  <div class="page-content">
+    <body>
+      <%= yield %>
+    </body>
+  </div>
+  </main>
+</div>
+
 </html>
