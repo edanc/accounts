@@ -5,6 +5,7 @@
     <tr>
       <th>Date</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -12,16 +13,19 @@
     <% @logs.each do |log| %>
       <tr>
         <td>
-          <% binding.pry %>
-          <%= l(log.created_at, format: :long) %>
+          <%= local_date(log.created_at) %>
         </td>
         <td>
-        <%= link_to("View", log_path(log)) %>
+          <%= link_to("View", log_path(log)) %>
+        </td>
+        <td>
+          <%= link_to("Delete", log_path(log), method: :delete) %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<br>
 
-<%= link_to 'New Log', logs_path, method: :post %>
+<div class="footer">
+ <%= link_to 'New Log', logs_path, method: :post %>
+</div>

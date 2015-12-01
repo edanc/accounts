@@ -10,6 +10,7 @@ class LogsController < ApplicationController
   # GET /logs/1
   # GET /logs/1.json
   def show
+    @log = Log.find_by_id(params[:id])
   end
 
   # GET /logs/new
@@ -37,8 +38,6 @@ class LogsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /logs/1
-  # PATCH/PUT /logs/1.json
   def update
     respond_to do |format|
       if @log.update(log_params)

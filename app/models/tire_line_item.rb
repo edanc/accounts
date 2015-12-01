@@ -15,4 +15,6 @@
 class TireLineItem < ActiveRecord::Base
   belongs_to :log, inverse_of: :tire_line_items
   has_one :tire_size
+  accepts_nested_attributes_for :tire_size, allow_destroy: true
+
 end

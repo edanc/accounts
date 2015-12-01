@@ -1,4 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="top-page">
+  <h2> <%= local_date(@log.created_at)%> </h2>
+</div>
 
 <%= link_to 'Edit', edit_log_path(@log) %> |
-<%= link_to 'Back', logs_path %>
+<%= link_to 'Back', logs_path %><div class="inner-content">
+  <table class='mdl-data-table mdl-js-data-table'>
+    <thead>
+      <tr>
+        <th> Quantity </th>
+        <th> Cost of each </th>
+        <th class="mdl-data-table__cell--non-numeric"> New or Used </th>
+        <th> Tire Size </th>
+        <th> Total </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @log.tire_line_items.any? %>
+        <% @log.tire_line_items.each do |tli| %>
+          <tr>
+            <td> <%= tli.units %></td>
+            <td> <%= tli.unit_amount %></td>
+            <td> <%= tli.tire_type %></td>
+            <td> <%= tli.tire_size.size%></td>
+            <td> <%= tli.total_amount %></td>
+            <td>
+              <%= link_to("delete", logs_tire_line_item_path(@log, log_id: @log.id, tli_id: tli), method: :delete)%>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr>
+        <%= form_for @log, url: logs_tire_line_items_path, as: :log, method: :post do |f| %>
+          <%= f.fields_for :tire_line_item do |tli| %>
+            <td><%= tli.number_field :units, min: 1 %></td>
+            <td><%= tli.number_field :unit_amount %></td>
+            <td><%= tli.text_field :tire_type  %></td>
+
+            <%= tli.fields_for :tire_size do |ts| %>
+              <td><%= ts.text_field :size  %></td>
+            <% end %>
+            <%= hidden_field_tag :log_id, @log.id %>
+            <td><%= tli.number_field :total_amount %></td>
+            <td><%= submit_tag("add", id: :add_tli) %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+<div>
+

@@ -10,5 +10,5 @@
 #
 
 class TireSize < ActiveRecord::Base
-  belongs_to: :tire_line_item, inverse_of: :tire_size
+  belongs_to :tire_line_item, inverse_of: :tire_size
 end

@@ -1,8 +1,14 @@
 Accounts::Application.routes.draw do
-
+  root 'logs#index'
   resources :logs
 
-  root 'logs#index'
+  namespace :logs do
+    resources :tire_line_items
+
+    namespace :tire_line_items do 
+      resources :tire_sizes
+    end
+  end
   resources :records
 
   # The priority is based upon order of creation: first created -> highest priority.

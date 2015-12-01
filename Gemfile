@@ -11,6 +11,7 @@ gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 4.0.0'
 gem 'react-rails', '~> 1.0'
+gem 'local_time'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -30,6 +31,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'material_design_lite-rails'
+gem 'material_icons'
 
 group :development do
   gem 'pry-rails'
@@ -39,7 +41,7 @@ end
 
 group :development, :test do
   gem "did_you_mean"
-  gem "pry-byebug"
+  gem 'pry-byebug', '=1.3.3'
   gem "rspec-rails"
   gem "guard-rspec"
   gem "spring"
