@@ -32,6 +32,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'material_design_lite-rails'
 gem 'material_icons'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 group :development do
   gem 'pry-rails'
@@ -53,7 +54,6 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'

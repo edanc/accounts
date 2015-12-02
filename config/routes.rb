@@ -1,7 +1,14 @@
 Accounts::Application.routes.draw do
-  root 'logs#index'
-  resources :logs
+  root :to => "users#new"
 
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  resources :logs
   namespace :logs do
     resources :tire_line_items
 
