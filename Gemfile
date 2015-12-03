@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'material_design_lite-rails'
 gem 'material_icons'
 gem 'bcrypt-ruby', '~> 3.1.2'
+gem "paranoia", "~> 2.0"
 
 group :development do
   gem 'pry-rails'

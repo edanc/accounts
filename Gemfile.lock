@@ -114,6 +114,8 @@ GEM
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    paranoia (2.1.4)
+      activerecord (~> 4.0)
     pg (0.17.1)
     polyglot (0.3.5)
     pry (0.10.3)
@@ -224,6 +226,7 @@ DEPENDENCIES
   local_time
   material_design_lite-rails
   material_icons
+  paranoia (~> 2.0)
   pg
   pry-byebug (= 1.3.3)
   pry-rails

@@ -10,6 +10,7 @@
 #  tire_type    :text             not null
 #  unit_amount  :text             not null
 #  log_id       :integer          not null
+#  deleted_at   :datetime
 #
 
 class TireLineItem < ActiveRecord::Base
@@ -17,4 +18,5 @@ class TireLineItem < ActiveRecord::Base
   has_one :tire_size
   accepts_nested_attributes_for :tire_size, allow_destroy: true
 
+  acts_as_paranoid
 end

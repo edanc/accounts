@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202032454) do
+ActiveRecord::Schema.define(version: 20151203062055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151202032454) do
   create_table "logs", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   create_table "records", force: true do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20151202032454) do
     t.text     "tire_type",                             null: false
     t.text     "unit_amount",                           null: false
     t.integer  "log_id",                                null: false
+    t.datetime "deleted_at"
   end
 
   create_table "tire_sizes", force: true do |t|
