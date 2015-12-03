@@ -11,6 +11,7 @@
 #  unit_amount  :text             not null
 #  log_id       :integer          not null
 #  deleted_at   :datetime
+#  tire_size_id :integer          not null
 #
 
 require 'rails_helper'

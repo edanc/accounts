@@ -13,7 +13,9 @@ Accounts::Application.routes.draw do
     resources :tire_line_items
 
     namespace :tire_line_items do 
-      resources :tire_sizes
+      resources :tire_sizes do
+        get 'sizes', on: :collection
+      end
     end
   end
   resources :records

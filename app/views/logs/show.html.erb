@@ -21,7 +21,7 @@
             <td> <%= tli.units %></td>
             <td> <%= tli.unit_amount %></td>
             <td> <%= tli.tire_type %></td>
-            <td> <%= tli.tire_size.size%></td>
+            <td> <%= pretty_tire_size(tli.tire_size.size)%></td>
             <td> <%= tli.total_amount %></td>
             <td>
               <%= link_to("delete", logs_tire_line_item_path(@log, log_id: @log.id, tli_id: tli), method: :delete)%>
@@ -37,7 +37,7 @@
             <td><%= tli.text_field :tire_type  %></td>
 
             <%= tli.fields_for :tire_size do |ts| %>
-              <td><%= ts.text_field :size  %></td>
+              <td><%= ts.text_field :size , data: {autocomplete_source: '/suggestions.json'} %></td>
             <% end %>
             <%= hidden_field_tag :log_id, @log.id %>
             <td><%= tli.number_field :total_amount %></td>

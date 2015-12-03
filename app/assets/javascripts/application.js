@@ -18,4 +18,6 @@
 //= require react_ujs
 //= require components
 //= require material
+//= require twitter/typeahead
+//= require twitter/typeahead.min
 //= require_tree .

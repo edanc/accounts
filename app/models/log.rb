@@ -9,7 +9,7 @@
 #
 
 class Log < ActiveRecord::Base
-  has_many :tire_line_items, inverse_of: :log
+  has_many :tire_line_items, inverse_of: :log, dependent: :destroy
   accepts_nested_attributes_for :tire_line_items, allow_destroy: true
 
   acts_as_paranoid
