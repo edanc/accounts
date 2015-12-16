@@ -24,7 +24,6 @@ class LogsController < ApplicationController
   end
 
   def today
-    #Log.where(created_at: Date.today)
     log = Log.where("created_at >= ?", Time.zone.now.beginning_of_day).first_or_create
     redirect_to log_path(log)
   end
