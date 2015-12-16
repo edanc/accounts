@@ -8,7 +8,9 @@ Accounts::Application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  resources :logs
+  resources :logs do
+    get 'today', on: :collection
+  end
   namespace :logs do
     resources :tire_line_items
 

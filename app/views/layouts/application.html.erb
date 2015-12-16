@@ -31,6 +31,12 @@
     <!-- Tabs -->
     <% if current_user %>
       <div>
+        <%= content_tag(:a, "Today",
+                        href: "#{today_logs_path}",
+                        class: ["mdl-layout__tab"]
+                       )%>
+
+
         <%= content_tag(:a, "Logs",
                         href: "#{logs_path}",
                         class: ["mdl-layout__tab"]

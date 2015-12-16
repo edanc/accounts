@@ -23,6 +23,12 @@ class LogsController < ApplicationController
   def edit
   end
 
+  def today
+    #Log.where(created_at: Date.today)
+    log = Log.where("created_at >= ?", Time.zone.now.beginning_of_day).first_or_create
+    redirect_to log_path(log)
+  end
+
   # POST /logs
   # POST /logs.json
   def create

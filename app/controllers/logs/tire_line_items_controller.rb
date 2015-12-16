@@ -2,7 +2,7 @@ class Logs::TireLineItemsController < ApplicationController
   def create
     tli = log.tire_line_items.build(tire_params)
     tire_size = TireSize.find_by(size: tire_size_param.gsub(/\s+/, ""))
-    binding.pry
+
     if tire_size
       tli.tire_size_id = tire_size.id
     else

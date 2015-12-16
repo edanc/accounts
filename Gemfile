@@ -35,6 +35,7 @@ gem 'material_icons'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem "paranoia", "~> 2.0"
 gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
+gem "bullet", :group => "development"
 
 group :development do
   gem 'pry-rails'
