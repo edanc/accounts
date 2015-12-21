@@ -20,4 +20,15 @@ class TireLineItem < ActiveRecord::Base
   accepts_nested_attributes_for :tire_size, allow_destroy: true
 
   acts_as_paranoid
+
+  TYPES= %w{new used}
+  validates :tire_type, inclusion: { in: TYPES }
+
+  scope :number_of_new, -> {
+    where(tire_type: "new").size
+  }
+
+  scope :number_of_used, -> {
+    where(tire_type: "used").size
+  }
 end

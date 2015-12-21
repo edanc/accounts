@@ -1,5 +1,5 @@
 class LogsController < ApplicationController
-  before_action :set_log, only: [:show, :edit, :update, :destroy]
+  before_action :set_log, only: [:show, :edit, :update, :destroy, :update_for_summary]
   before_filter :authorize
 
   # GET /logs
@@ -21,11 +21,6 @@ class LogsController < ApplicationController
 
   # GET /logs/1/edit
   def edit
-  end
-
-  def today
-    log = Log.where("created_at >= ?", Time.zone.now.beginning_of_day).first_or_create
-    redirect_to log_path(log)
   end
 
   # POST /logs
@@ -66,14 +61,28 @@ class LogsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_log
-      @log = Log.find(params[:id])
-    end
+  def today
+    log = Log.where("created_at >= ?", Time.zone.now.beginning_of_day).first_or_create
+    redirect_to log_path(log)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def log_params
-      params[:log]
-    end
+  def update_for_summary
+    @log.update(summarize: true)
+    redirect_to log_path(@log)
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_log
+    @log = Log.find(log_id)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def log_params
+    params[:log]
+  end
+
+  def log_id
+    params[:id] || params[:log_id]
+  end
 end

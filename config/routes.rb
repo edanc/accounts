@@ -10,6 +10,7 @@ Accounts::Application.routes.draw do
 
   resources :logs do
     get 'today', on: :collection
+    put 'update_for_summary'
   end
   namespace :logs do
     resources :tire_line_items
