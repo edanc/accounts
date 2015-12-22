@@ -2,28 +2,35 @@
 
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
   <thead>
-    <tr>
-      <th>Date</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @logs.each do |log| %>
       <tr>
-        <td>
-          <%= local_date(log.created_at) %>
-        </td>
-        <td>
-          <%= link_to("View", log_path(log)) %>
-        </td>
-        <td>
-          <%= link_to("Delete", log_path(log), method: :delete) %>
-        </td>
+        <th>Date</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+     <% if @logs.empty? %>
+       <tr>
+         <td colspan="3">
+           No Logs
+         </td>
+       </tr>
+     <% else %>
+      <% @logs.each do |log| %>
+        <tr>
+          <td>
+            <%= local_date(log.created_at) %>
+          </td>
+          <td>
+            <%= link_to("View", log_path(log)) %>
+          </td>
+          <td>
+            <%= link_to("Delete", log_path(log), method: :delete) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
 </table>
 
 <div class="footer">

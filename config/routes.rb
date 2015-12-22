@@ -1,5 +1,5 @@
 Accounts::Application.routes.draw do
-  root :to => "users#new"
+  get "/", to: redirect("login"), as: :root  
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'

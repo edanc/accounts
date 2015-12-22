@@ -7,7 +7,7 @@ development:
 
 test:
   adapter: postgresql
-  database: Ernesto1
+  database: Ernesto1_test
   encoding: utf8
   pool: 5
   timeout: 5000
