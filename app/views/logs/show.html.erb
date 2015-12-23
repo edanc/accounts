@@ -25,7 +25,9 @@
             <td> <%= pretty_tire_size(tli.tire_size.size)%></td>
             <td> <%= tli.total_amount %></td>
             <td>
-              <%= link_to("delete", logs_tire_line_item_path(@log, log_id: @log.id, tli_id: tli), method: :delete)%>
+              <% unless @log.summarize? %>
+                <%= link_to("delete", logs_tire_line_item_path(@log, log_id: @log.id, tli_id: tli), method: :delete)%>
+              <% end %>
             </td>
           </tr>
         <% end %>
@@ -37,7 +39,7 @@
               <td id="unit"><%= tli.number_field :units, min: 1 %></td>
               <td id="amount">$<%= tli.number_field :unit_amount %></td>
               <td>
-                <%= select_tag 'tire_type',
+                <%= tli.select 'tire_type',
                   options_for_select(["new", "used"]) %>
               </td>
 
@@ -51,7 +53,7 @@
               <% end %>
               <%= hidden_field_tag :log_id, @log.id %>
               <td> $<%= tli.number_field :total_amount %></td>
-              <td><%= submit_tag("add", id: :add_tli) %></td>
+              <td><%= tli.submit("add", id: :add_tli) %></td>
             <% end %>
           <% end %>
         <% end %>

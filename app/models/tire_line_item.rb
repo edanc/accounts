@@ -21,7 +21,7 @@ class TireLineItem < ActiveRecord::Base
 
   acts_as_paranoid
 
-  TYPES= %w{new used}
+  TYPES = %w{new used}
   validates :tire_type, inclusion: { in: TYPES }
 
   scope :number_of_new, -> {
