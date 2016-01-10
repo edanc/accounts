@@ -6,6 +6,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  deleted_at :datetime
+#  summarize  :boolean          default(FALSE)
 #
 
 class Log < ActiveRecord::Base

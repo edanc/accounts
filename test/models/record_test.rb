@@ -3,7 +3,7 @@
 # Table name: records
 #
 #  id         :integer          not null, primary key
-#  title      :string(255)
+#  title      :string
 #  date       :date
 #  amount     :float
 #  created_at :datetime

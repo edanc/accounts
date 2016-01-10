@@ -3,11 +3,13 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  email           :string(255)
-#  password_digest :string(255)
-#  name            :string(255)
+#  email           :string
+#  password_digest :string
+#  name            :string
 #  created_at      :datetime
 #  updated_at      :datetime
+#  is_admin        :boolean          default(FALSE)
+#  is_super        :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base

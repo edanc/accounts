@@ -1,7 +1,19 @@
 <h1>Log in</h1>
 
-<%= form_tag login_path do %>
-  Email: <%= text_field_tag :email %> </br>
-  Password: <%= password_field_tag :password %> </br>
-  <%= submit_tag "Submit" %>
-<% end %>
+<table>
+  <%= form_tag login_path do %>
+    <tr>
+      <td>Email:</td>
+      <td><%= text_field_tag :email %> </td>
+    </tr>
+    <tr>
+      <td>Password: </td>
+      <td><%= password_field_tag :password %> <td>
+    </tr>
+    <tr>
+      <td>
+        <%= submit_tag "Submit" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
