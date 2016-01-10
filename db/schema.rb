@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20151221055227) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "logs", force: true do |t|
+  create_table "logs", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
     t.boolean  "summarize",  default: false
   end
 
-  create_table "records", force: true do |t|
+  create_table "records", force: :cascade do |t|
     t.string   "title"
     t.date     "date"
     t.float    "amount"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151221055227) do
     t.datetime "updated_at"
   end
 
-  create_table "tire_line_items", force: true do |t|
+  create_table "tire_line_items", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "units",                                 null: false
@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 20151221055227) do
     t.integer  "tire_size_id",                          null: false
   end
 
-  create_table "tire_sizes", force: true do |t|
+  create_table "tire_sizes", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "size",       null: false
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.string   "name"
