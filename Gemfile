@@ -29,13 +29,14 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem "bullet", :group => "development"
+gem "paranoia", "~> 2.0"
+gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'jbuilder', '~> 2.0'
 gem 'material_design_lite-rails'
 gem 'material_icons'
-gem 'bcrypt-ruby', '~> 3.1.2'
-gem "paranoia", "~> 2.0"
+gem 'nokogiri'
 gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
-gem "bullet", :group => "development"
 
 group :development do
   gem 'pry-rails'
