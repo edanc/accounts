@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to logs_path
     else
+      flash_error(key: :error, message: "Incorrect Password or Email")
       redirect_to '/login'
     end
   end

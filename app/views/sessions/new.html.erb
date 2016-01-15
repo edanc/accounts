@@ -1,7 +1,6 @@
 <h1>Log in</h1>
-
-<table>
-  <%= form_tag login_path do %>
+<%= form_tag login_path do %>
+  <table>
     <tr>
       <td>Email:</td>
       <td><%= text_field_tag :email %> </td>
@@ -15,5 +14,5 @@
         <%= submit_tag "Submit" %>
       </td>
     </tr>
-  <% end %>
-</table>
+  </table>
+<% end %>

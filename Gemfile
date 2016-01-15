@@ -37,6 +37,7 @@ gem 'material_design_lite-rails'
 gem 'material_icons'
 gem 'nokogiri'
 gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 group :development do
   gem 'pry-rails'
