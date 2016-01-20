@@ -53,7 +53,7 @@
               <% end %>
               <%= hidden_field_tag :log_id, @log.id %>
               <td> $<%= tli.number_field :total_amount %></td>
-              <td><%= tli.submit("add", id: :add_tli) %></td>
+              <td><%= tli.submit("add", id: :add_tli, class: [:btn]) %></td>
             <% end %>
           <% end %>
         <% end %>
@@ -79,7 +79,7 @@
       </tr>
     <% else %>
      <td>
-       <%= link_to "Done For Today", log_update_for_summary_path(@log), method: :put %>
+       <%= button_to "Done For Today", log_update_for_summary_path(@log), method: :put, class: [:btn] %>
      </td>
   <% end %>
   </tfoot>
