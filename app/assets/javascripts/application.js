@@ -19,7 +19,7 @@
 //= require react_ujs
 //= require local_time
 //= require components
-//= require material
+//= require tool/tools.main
 //= require twitter/typeahead
 //= require twitter/typeahead.min
 //= require_tree .
