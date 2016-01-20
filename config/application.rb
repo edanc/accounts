@@ -26,10 +26,10 @@ module Accounts
     config.action_controller.perform_caching = true
 
     # config.i18n.default_locale = :de
-    if Rails.env.development? or Rails.env.test?
-      require 'pry-rails'
-    else
-      require 'pry-rails/console'
-    end
+   # if Rails.env.development? or Rails.env.test?
+   #   require 'pry-rails'
+   # else
+   #   require 'pry-rails/console'
+   # end
   end
 end
