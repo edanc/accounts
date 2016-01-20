@@ -24,12 +24,11 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "bullet", :group => "development"
 gem "paranoia", "~> 2.0"
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'jbuilder', '~> 2.0'
@@ -42,6 +41,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 group :development do
   gem 'pry-rails'
   gem "rspec"
+  gem "bullet"
   gem 'annotate', github: 'ctran/annotate_models'
 end
 
