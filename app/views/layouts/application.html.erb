@@ -23,6 +23,7 @@
   <% end %>
     <!-- Tabs -->
   <% if current_user %>
+    <div class="container">
     <%= nav_bar responsive: true  do %>
       <%= menu_group pull: :left do %>
         <%= menu_item "Today", today_logs_path %>
@@ -30,6 +31,7 @@
         <%= menu_item "Records", records_path %>
       <% end %>
     <% end %>
+  </div>
   <% end %>
   </header>
 
