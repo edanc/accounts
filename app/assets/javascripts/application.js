@@ -17,6 +17,8 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//= require react_router
+//= require react_router_ujs
 //= require local_time
 //= require components
 //= require tool/tools.main

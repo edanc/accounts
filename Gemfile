@@ -10,7 +10,8 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 4.0.0'
-gem 'react-rails', '~> 1.0'
+gem 'react-rails', '~> 1.6.0'
+gem 'react-router-rails'
 gem 'local_time'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -25,6 +26,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'turbolinks'
+gem "rails_memory_bloat"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 

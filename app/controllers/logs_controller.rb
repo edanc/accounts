@@ -2,31 +2,23 @@ class LogsController < ApplicationController
   before_action :set_log, only: [:show, :edit, :update, :destroy, :update_for_summary]
   before_filter :authorize
 
-  # GET /logs
-  # GET /logs.json
   def index
     @logs = Log.all
   end
 
-  # GET /logs/1
-  # GET /logs/1.json
   def show
     @log = Log.find_by_id(params[:id])
   end
 
-  # GET /logs/new
   def new
     @log = Log.new
   end
 
-  # GET /logs/1/edit
   def edit
   end
 
-  # POST /logs
-  # POST /logs.json
   def create
-    @log = Log.new(log_params)
+    @log = Log.where("created_at >= ?", Time.zone.now.beginning_of_day).first_or_create
 
     respond_to do |format|
       if @log.save
@@ -51,8 +43,6 @@ class LogsController < ApplicationController
     end
   end
 
-  # DELETE /logs/1
-  # DELETE /logs/1.json
   def destroy
     @log.destroy
     respond_to do |format|

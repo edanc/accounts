@@ -3,7 +3,9 @@
   <h2> <%= local_date(@log.created_at)%> </h2>
 </div>
 
-<%= link_to 'Back', logs_path %><div class="inner-content">
+<%= button_to 'Back', logs_path, class: ["btn-sm", :btn, "pull-right"] %>
+<div class="inner-content">
+  <h3> Tires </h3>
   <table class='table'>
     <thead>
       <tr>
@@ -72,6 +74,26 @@
       </tr>
     </tbody>
   </table>
+
+  <section>
+  <h3> Labor Work</h3>
+  <%= form_for @log, url: logs_tire_line_items_path, as: :log, method: :post do |f| %>
+  <table>
+    <thead>
+      <tr>
+        <th colspan"4">
+          Amount
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
+  </section>
   <tfoot>
     <% if @log.summarize? %>
       <% tire_line_items = @log.tire_line_items %>
@@ -91,7 +113,7 @@
       </tr>
     <% else %>
      <td>
-       <%= button_to "Done For Today", log_update_for_summary_path(@log), method: :put, class: [:btn] %>
+       <%= button_to "Done For Today", log_update_for_summary_path(@log), method: :put, class: [:btn] if @current_user.is_admin? %>
      </td>
   <% end %>
   </tfoot>

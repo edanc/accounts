@@ -11,7 +11,9 @@
 
 class Log < ActiveRecord::Base
   has_many :tire_line_items, inverse_of: :log, dependent: :destroy
+  has_many :labor_line_items, dependent: :destroy
   accepts_nested_attributes_for :tire_line_items, allow_destroy: true
+  accepts_nested_attributes_for :labor_line_items, allow_destroy: true
 
   acts_as_paranoid
 end
