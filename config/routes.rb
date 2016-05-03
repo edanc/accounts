@@ -13,7 +13,7 @@ Accounts::Application.routes.draw do
     put 'update_for_summary'
   end
   namespace :logs do
-    resources :tire_line_items
+    resources :tire_line_items, only: [:create, :destroy]
     resources :labor_line_items, only: [:create, :update, :destroy]
 
     namespace :tire_line_items do

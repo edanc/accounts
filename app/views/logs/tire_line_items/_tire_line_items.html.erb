@@ -8,7 +8,7 @@
     <% unless @log.summarize? %>
       <%= link_to(
         "delete",
-        logs_tire_line_item_path(@log, log_id: @log.id, tli_id: tire_line_item),
+        logs_tire_line_item_path(tire_line_item, log_id: @log.id),
         method: :delete
       )%>
     <% end %>

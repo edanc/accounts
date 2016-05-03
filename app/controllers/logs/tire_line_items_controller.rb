@@ -14,7 +14,7 @@ class Logs::TireLineItemsController < ApplicationController
   end
 
   def destroy
-    log.tire_line_items.where(id: params[:tli_id]).destroy_all
+    log.tire_line_items.find_by(id: params[:id]).destroy
     redirect_to log_path(log)
   end
 
