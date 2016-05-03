@@ -25,10 +25,10 @@ class TireLineItem < ActiveRecord::Base
   validates :tire_type, inclusion: { in: TYPES }
 
   scope :number_of_new, -> {
-    where(tire_type: "new").size
+    where(tire_type: "new").map(&:units).sum
   }
 
   scope :number_of_used, -> {
-    where(tire_type: "used").size
+    where(tire_type: "used").map(&:units).sum
   }
 end
