@@ -1,0 +1,37 @@
+<%= form_for @log, url: logs_tire_line_items_path, as: :log, method: :post do |f| %>
+  <%= f.fields_for :tire_line_item do |tli| %>
+    <td id="unit">
+      <%= tli.number_field :units, min: 1, class: ["form-control"] %>
+    </td>
+    <td id="amount">
+      <%= tli.number_field :unit_amount,
+        class: ["form-control"],
+        placeholder: "$"
+      %>
+    </td>
+    <td>
+      <%= tli.select 'tire_type',
+        options_for_select(["new", "used"]),
+        {},
+        {class: ["form-control"]} %>
+    </td>
+    <%= tli.fields_for :tire_size do |ts| %>
+      <td id="tire_sizes">
+        <%= ts.text_field(
+          :size ,
+          data: {href: sizes_logs_tire_line_items_tire_sizes_path(format: :json)},
+          class: "typeahead form-control"
+        )%>
+      </td>
+    <% end %>
+    <%= hidden_field_tag :log_id, @log.id %>
+    <td>
+      <%= tli.number_field(
+        :total_amount,
+        class: ["form-control"],
+        placeholder: "$"
+      )%>
+    </td>
+    <td><%= tli.submit("add", id: :add_tli, class: [:btn]) %></td>
+  <% end %>
+<% end %>

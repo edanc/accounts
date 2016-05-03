@@ -1,0 +1,24 @@
+<% if @log.summarize? %>
+  <% tire_line_items = @log.tire_line_items %>
+  <tr>
+    <td> Number of Tires sold: </td>
+    <td>
+      <%= tire_line_items.to_a.sum(&:units) %>,
+    </td>
+    <td> <%= tire_line_items.number_of_new %> New And </td>
+    <td> <%= tire_line_items.number_of_used %> Used </td>
+  </tr>
+  <tr>
+    <td> Total amount:</td>
+    <td>
+      <%= tire_line_items.to_a.sum(&:total_amount) %>
+    </td>
+  </tr>
+<% else %>
+  <td>
+    <%= button_to("Done For Today",
+                  log_update_for_summary_path(@log),
+                  method: :put,
+                  class: [:btn]) if @current_user.is_admin? %>
+              </td>
+<% end %>

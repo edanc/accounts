@@ -19,65 +19,22 @@
     </thead>
     <tbody>
       <% if @log.tire_line_items.any? %>
-        <% @log.tire_line_items.each do |tli| %>
-          <tr>
-            <td> <%= tli.units %></td>
-            <td> <%= tli.unit_amount %></td>
-            <td> <%= tli.tire_type %></td>
-            <td> <%= pretty_tire_size(tli.tire_size.size)%></td>
-            <td> <%= tli.total_amount %></td>
-            <td>
-              <% unless @log.summarize? %>
-                <%= link_to("delete", logs_tire_line_item_path(@log, log_id: @log.id, tli_id: tli), method: :delete)%>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+        <%= render(
+          partial: "logs/tire_line_items/tire_line_items",
+          collection: @log.tire_line_items,
+          as: :tire_line_item
+        )%>
       <% end %>
       <tr>
         <% unless @log.summarize? %>
-          <%= form_for @log, url: logs_tire_line_items_path, as: :log, method: :post do |f| %>
-            <%= f.fields_for :tire_line_item do |tli| %>
-              <td id="unit"><%= tli.number_field :units, min: 1, class: ["form-control"] %></td>
-              <td id="amount">
-                <%= tli.number_field :unit_amount,
-                  class: ["form-control"],
-                  placeholder: "$"
-                %>
-              </td>
-              <td>
-                <%= tli.select 'tire_type',
-                  options_for_select(["new", "used"]),
-                  {},
-                  {class: ["form-control"]} %>
-              </td>
-
-              <%= tli.fields_for :tire_size do |ts| %>
-                <td id="tire_sizes">
-                  <%= ts.text_field(:size , data: {
-                    href: sizes_logs_tire_line_items_tire_sizes_path(format: :json)},
-                    class: "typeahead form-control")
-                  %>
-                </td>
-              <% end %>
-              <%= hidden_field_tag :log_id, @log.id %>
-              <td>
-                <%= tli.number_field :total_amount,
-                class: ["form-control"],
-                placeholder: "$"
-                %>
-              </td>
-              <td><%= tli.submit("add", id: :add_tli, class: [:btn]) %></td>
-            <% end %>
-          <% end %>
+          <%= render partial: "logs/tire_line_items/tire_line_item_form" %>
         <% end %>
       </tr>
     </tbody>
   </table>
 
   <section>
-  <h3> Labor Work</h3>
-  <% if @log.labor_line_items.any? %>
+    <h3> Labor Work</h3>
     <table class='table'>
       <thead>
         <th>amount</th>
@@ -85,53 +42,19 @@
         <th></th>
       </thead>
       <tbody>
-    <% @log.labor_line_items.each do |li| %>
-      <tr>
-        <td> <%= li.amount %></td>
-        <td> <%= li.description %></td>
-        <td>
-          <% unless @log.summarize? %>
-            <%= link_to("delete", logs_labor_line_item_path(@log, log_id: @log.id, id: li), method: :delete)%>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  <% end %>
-  <%= form_for @log.labor_line_items.new, as: :labor_line_items, url: logs_labor_line_items_path(log_id: @log), method: :post do |f| %>
-      <tr>
-        <td><%= f.number_field :amount %></td>
-        <td><%= f.text_field :description %></td>
-        <td><%= f.submit("add", class: [:btn]) %></td>
-      </tr>
-    </tbody>
+        <% if @log.labor_line_items.any? %>
+          <%= render(
+            partial: "logs/labor_line_items/labor_line_items",
+            collection: @log.labor_line_items,
+            as: :li
+          )%>
+        <% end %>
+        <%= render partial: "logs/labor_line_items/labor_line_item_form" %>
+      </tbody>
     </table>
-  <% end %>
   </section>
   <tfoot>
-    <% if @log.summarize? %>
-      <% tire_line_items = @log.tire_line_items %>
-      <tr>
-        <td> Number of Tires sold: </td>
-        <td>
-          <%= tire_line_items.to_a.sum(&:units) %>,
-        </td>
-        <td> <%= tire_line_items.number_of_new %> New And </td>
-        <td> <%= tire_line_items.number_of_used %> Used </td>
-      </tr>
-      <tr>
-        <td> Total amount:</td>
-        <td>
-          <%= tire_line_items.to_a.sum(&:total_amount) %>
-        </td>
-      </tr>
-    <% else %>
-     <td>
-       <%= button_to("Done For Today",
-                     log_update_for_summary_path(@log),
-                     method: :put,
-                     class: [:btn]) if @current_user.is_admin? %>
-     </td>
-    <% end %>
+    <%= render partial: "logs/tire_line_items/log_summarize" %>
   </tfoot>
 <div>
 <script type="text/javascript">

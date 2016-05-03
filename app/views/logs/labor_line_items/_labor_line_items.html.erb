@@ -1,0 +1,10 @@
+<tr>
+  <td> <%= li.amount %></td>
+  <td> <%= li.description %></td>
+  <td>
+    <% unless @log.summarize? %>
+      <%= link_to("delete", logs_labor_line_item_path(@log, log_id: @log.id, id: li), method: :delete)%>
+    <% end %>
+  </td>
+</tr>
+
