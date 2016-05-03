@@ -1,5 +1,5 @@
 Accounts::Application.routes.draw do
-  get "/", to: redirect("login"), as: :root  
+  get "/", to: redirect("login"), as: :root
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
@@ -14,8 +14,9 @@ Accounts::Application.routes.draw do
   end
   namespace :logs do
     resources :tire_line_items
+    resources :labor_line_items, only: [:create, :update, :destroy]
 
-    namespace :tire_line_items do 
+    namespace :tire_line_items do
       resources :tire_sizes do
         get 'sizes', on: :collection
       end

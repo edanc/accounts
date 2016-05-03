@@ -77,21 +77,34 @@
 
   <section>
   <h3> Labor Work</h3>
-  <%= form_for @log, url: logs_tire_line_items_path, as: :log, method: :post do |f| %>
-  <table>
-    <thead>
+  <% if @log.labor_line_items.any? %>
+    <table class='table'>
+      <thead>
+        <th>amount</th>
+        <th>description</th>
+        <th></th>
+      </thead>
+      <tbody>
+    <% @log.labor_line_items.each do |li| %>
       <tr>
-        <th colspan"4">
-          Amount
-        </th>
-    </tr>
-    </thead>
-    <tbody>
+        <td> <%= li.amount %></td>
+        <td> <%= li.description %></td>
+        <td>
+          <% unless @log.summarize? %>
+            <%= link_to("delete", logs_labor_line_item_path(@log, log_id: @log.id, id: li), method: :delete)%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+  <%= form_for @log.labor_line_items.new, as: :labor_line_items, url: logs_labor_line_items_path(log_id: @log), method: :post do |f| %>
       <tr>
-        <td></td>
+        <td><%= f.number_field :amount %></td>
+        <td><%= f.text_field :description %></td>
+        <td><%= f.submit("add", class: [:btn]) %></td>
       </tr>
     </tbody>
-  </table>
+    </table>
   <% end %>
   </section>
   <tfoot>
@@ -113,12 +126,14 @@
       </tr>
     <% else %>
      <td>
-       <%= button_to "Done For Today", log_update_for_summary_path(@log), method: :put, class: [:btn] if @current_user.is_admin? %>
+       <%= button_to("Done For Today",
+                     log_update_for_summary_path(@log),
+                     method: :put,
+                     class: [:btn]) if @current_user.is_admin? %>
      </td>
-  <% end %>
+    <% end %>
   </tfoot>
 <div>
-
 <script type="text/javascript">
 
 </script>

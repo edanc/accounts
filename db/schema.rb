@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20160214211522) do
   create_table "labor_line_items", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "log_id",                              null: false
-    t.decimal  "amount",     precision: 20, scale: 2, null: false
+    t.integer  "log_id",                               null: false
+    t.decimal  "amount",      precision: 20, scale: 2, null: false
+    t.text     "description"
     t.datetime "deleted_at"
   end
 
