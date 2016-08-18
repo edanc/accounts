@@ -8,7 +8,6 @@ gem 'rails', '4.2.3'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 4.0.0'
 gem 'react-rails', '~> 1.6.0'
 gem 'react-router-rails'
@@ -16,16 +15,13 @@ gem 'local_time'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'turbolinks'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'turbolinks'
 gem "rails_memory_bloat"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -34,11 +30,9 @@ gem "rails_memory_bloat"
 gem "paranoia", "~> 2.0"
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'jbuilder', '~> 2.0'
-gem 'material_design_lite-rails'
-gem 'material_icons'
 gem 'nokogiri'
-gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+#gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
+#gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 group :development do
   gem 'pry-rails'
