@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160214211522) do
     t.text     "unit_amount",                           null: false
     t.integer  "log_id",                                null: false
     t.datetime "deleted_at"
-    t.integer  "tire_size_id",                          null: false
+    t.integer  "tire_size_id"
   end
 
   create_table "tire_sizes", force: :cascade do |t|
