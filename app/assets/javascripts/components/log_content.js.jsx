@@ -1,0 +1,2 @@
+var LogContent = React.createClass({
+});
