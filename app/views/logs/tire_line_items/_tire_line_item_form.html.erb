@@ -1,31 +1,32 @@
 <%= form_for @log, url: logs_tire_line_items_path, as: :log, method: :post do |f| %>
   <%= f.fields_for :tire_line_item do |tli| %>
     <td id="unit">
-      <%= tli.number_field :units, min: 1, class: ["form-control"] %>
+      <%= tli.number_field :units, min: 1, class: ["form-control"], data: ["item-row"] %>
     </td>
     <td id="amount">
       <%= tli.number_field :unit_amount,
         class: ["form-control"],
-        placeholder: "$"
+          placeholder: "$",
+          data: ['item-row']
       %>
     </td>
     <td>
       <%= tli.select 'tire_type',
         options_for_select(["new", "used"]),
         {},
-        {class: ["form-control"]} %>
+        {class: ["form-control"], data: ['item-row']} %>
     </td>
     <%= tli.fields_for :tire_size do |ts| %>
       <td id="tire_sizes">
         <%= ts.text_field(
-          :size ,
-          data: {href: sizes_logs_tire_line_items_tire_sizes_path(format: :json)},
+          :size,
+          data: [href: sizes_logs_tire_line_items_tire_sizes_path(format: :json), 'item-row': 'item-row'],
           class: "typeahead form-control"
         )%>
       </td>
     <% end %>
     <%= hidden_field_tag :log_id, @log.id %>
-    <td>
+    <td data="item-row">
       <%= tli.number_field(
         :total_amount,
         class: ["form-control"],

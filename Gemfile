@@ -32,7 +32,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'jbuilder', '~> 2.0'
 gem 'nokogiri'
 #gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
-#gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 group :development do
   gem 'pry-rails'

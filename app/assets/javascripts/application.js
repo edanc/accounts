@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
 //= require react
@@ -20,6 +21,4 @@
 //= require local_time
 //= require components
 //= require tool/tools.main
-//= require twitter/typeahead
-//= require twitter/typeahead.min
 //= require_tree .
