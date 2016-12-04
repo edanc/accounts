@@ -16,15 +16,7 @@
         {},
         {class: ["form-control"], data: ['item-row']} %>
     </td>
-    <%= tli.fields_for :tire_size do |ts| %>
-      <td id="tire_sizes">
-        <%= ts.text_field(
-          :size,
-          data: [href: sizes_logs_tire_line_items_tire_sizes_path(format: :json), 'item-row': 'item-row'],
-          class: "typeahead form-control"
-        )%>
-      </td>
-    <% end %>
+    <td id="tire_sizes"><%= tli.text_field(:size)%></td>
     <%= hidden_field_tag :log_id, @log.id %>
     <td data="item-row">
       <%= tli.number_field(
