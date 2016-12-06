@@ -16,3 +16,7 @@ log/
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+# Added by Breakfast Gem
+npm-debug.log
+node_modules/*
+public/assets/*

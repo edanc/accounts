@@ -19,7 +19,7 @@ gem 'turbolinks'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem "rails_memory_bloat"
-
+gem "breakfast"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
