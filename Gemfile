@@ -1,16 +1,12 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '5.0.0.1'
 
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-gem 'react-rails', '~> 1.6.0'
-gem 'react-router-rails'
+gem 'sass-rails'
 gem 'local_time'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -27,18 +23,17 @@ gem "rails_memory_bloat"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "paranoia", "~> 2.0"
+gem "paranoia", "~> 2.2"
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'jbuilder', '~> 2.0'
 gem 'nokogiri'
-#gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 group :development do
   gem 'pry-rails'
   gem "rspec"
   gem "bullet"
-  gem 'annotate', github: 'ctran/annotate_models'
+  gem 'annotate'
 end
 
 group :development, :test do
@@ -56,11 +51,8 @@ end
 
 # Use ActiveModel has_secure_password
 
-# Use unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
