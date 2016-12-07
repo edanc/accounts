@@ -1,4 +1,5 @@
-var Records = React.createClass({
+import React from 'react';
+export default class Records extends React.Component {
   getInitialState: function() {
     return { records: this.props.data };
   },
@@ -22,7 +23,7 @@ var Records = React.createClass({
   },
 
   credits: function(){
-    credits = this.state.records.filter(function(val){ 
+    credits = this.state.records.filter(function(val){
       return val.amount >= 0
     });
     return credits.reduce (function(prev, curr){
@@ -88,4 +89,3 @@ var Records = React.createClass({
       </div>
     );}
 });
-
