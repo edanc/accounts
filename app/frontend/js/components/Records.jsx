@@ -1,5 +1,6 @@
 import React from 'react';
-const Records = React.createClass({
+
+export default class Records extends React.Component {
   getInitialState: function() {
     return { records: this.props.data };
   },
@@ -88,5 +89,5 @@ const Records = React.createClass({
         </table>
       </div>
     );}
-});
+};
 module.exports = Records;
