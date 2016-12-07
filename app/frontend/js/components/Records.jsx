@@ -1,5 +1,5 @@
 import React from 'react';
-export default class Records extends React.Component {
+const Records = React.createClass({
   getInitialState: function() {
     return { records: this.props.data };
   },
@@ -89,3 +89,4 @@ export default class Records extends React.Component {
       </div>
     );}
 });
+module.exports = Records;
