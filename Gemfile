@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0.1'
 
 gem 'pg'
+gem 'puma', '~> 3.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
@@ -28,6 +29,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'jbuilder', '~> 2.0'
 gem 'nokogiri'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'faye-websocket', '0.10.0'
 
 group :development do
   gem 'pry-rails'

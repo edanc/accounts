@@ -1,5 +1,5 @@
 Accounts::Application.routes.draw do
-  get "/", to: redirect("login"), as: :root
+  root 'sessions#new'
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
@@ -28,7 +28,6 @@ Accounts::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

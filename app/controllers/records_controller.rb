@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   def index
-    @records = Record.all
+    @records = Record.all.to_json
   end
 
   def create

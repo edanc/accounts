@@ -27,9 +27,11 @@ Accounts::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.compress = true
+  config.assets.compress = false
   config.assets.debug = false
-  config.assets.compile = true
+  config.breakfast.html_reload_strategy = :turbolinks
+  config.breakfast.js_reload_strategy = :page
+  config.breakfast.css_reload_strategy = :hot
 
   config.after_initialize do
     Bullet.enable = true
