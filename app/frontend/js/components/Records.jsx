@@ -1,4 +1,22 @@
-import React from 'react';
+//import React from 'react';
+const React = require("react");
+
+const Records = React.createClass({
+  render() {
+    return (
+      <div id="content">
+        <h1>React!</h1>
+        <div>
+          <a href="https://github.com/devlocker/breakfast">Breakfest Gem</a>
+          <a href="https://facebook.github.io/react/index.html">React Docs</a>
+        </div>
+      </div>
+    )
+  }
+});
+
+module.exports = Records;
+/*
 
 export default class Records extends React.Component {
   getInitialState: function() {
@@ -52,7 +70,7 @@ export default class Records extends React.Component {
     this.replaceState({records: records})
   },
 
-  render: function() {
+  render() {
     return(
       <div className='records'>
         <h2 className='title'>
@@ -88,6 +106,8 @@ export default class Records extends React.Component {
           </tbody>
         </table>
       </div>
-    );}
+    );
+  }
+
 };
-module.exports = Records;
+*/

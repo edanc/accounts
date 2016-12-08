@@ -29,9 +29,9 @@ Accounts::Application.configure do
   # number of complex assets.
   config.assets.compress = false
   config.assets.debug = false
-  config.breakfast.html_reload_strategy = :turbolinks
-  config.breakfast.js_reload_strategy = :page
-  config.breakfast.css_reload_strategy = :hot
+#  config.breakfast.html_reload_strategy = :turbolinks
+#  config.breakfast.js_reload_strategy = :page
+#  config.breakfast.css_reload_strategy = :hot
 
   config.after_initialize do
     Bullet.enable = true
