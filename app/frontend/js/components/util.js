@@ -1,4 +1,3 @@
-var amountFormat = function(amount) {
+export function amountFormat(amount) {
   return "$" + Number(amount).toLocaleString();
 };
-

@@ -1,4 +1,7 @@
-var AmountBox = React.createClass({
+import React from 'react';
+import {amountFormat} from './util.js';
+
+const AmountBox = React.createClass({
   render: function() {
     return(
       <div className='col-md-4'>
@@ -14,3 +17,5 @@ var AmountBox = React.createClass({
     );
   }
 });
+
+module.exports = AmountBox;

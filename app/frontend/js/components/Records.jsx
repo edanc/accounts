@@ -1,12 +1,14 @@
 import React from 'react';
+import AmountBox from './amount_box';
+import RecordForm from './record_form';
 
-export default class Records extends React.Component {
+const Records = React.createClass({
   getInitialState: function() {
     return { records: this.props.data };
   },
 
   getDefaultProps: function() {
-    return { records: [] };
+    return { data: [] };
   },
 
   addRecord: function(record){
@@ -14,7 +16,6 @@ export default class Records extends React.Component {
     records.push(record);
     this.setState({records: records});
   },
-
 
   updateRecord: function(record, data) {
     var index = this.state.records.indexOf(record);
@@ -24,7 +25,7 @@ export default class Records extends React.Component {
   },
 
   credits: function(){
-    credits = this.state.records.filter(function(val){
+    const credits = this.state.records.filter(function(val){
       return val.amount >= 0
     });
     return credits.reduce (function(prev, curr){
@@ -52,7 +53,7 @@ export default class Records extends React.Component {
     this.replaceState({records: records})
   },
 
-  render: function() {
+  render() {
     return(
       <div className='records'>
         <h2 className='title'>
@@ -84,10 +85,12 @@ export default class Records extends React.Component {
                 handleDeleteRecord={this.deleteRecord}
                 handleEditRecord={this.updateRecord}
               />
-              }.bind(this))}
+              }.bind(this)
+            )}
           </tbody>
         </table>
       </div>
-    );}
-};
+    )}
+});
+
 module.exports = Records;

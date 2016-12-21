@@ -15,6 +15,10 @@ module.exports = {
     babel: {
       presets: ['es2015', 'react']
     },
+    jcopycat: {
+      // Copy bootstrap fonts. These will go into the public/assets/fonts folder
+      "fonts": ["node_modules/bootstrap/dist/fonts/"]
+    }
   },
 
   paths: {
@@ -39,13 +43,6 @@ module.exports = {
       jQuery: "jquery",
       breakfast: "breakfast-rails",
       bootstrap: "bootstrap"
-    }
-  },
-
-  plugins: {
-    jcopycat: {
-      // Copy bootstrap fonts. These will go into the public/assets/fonts folder
-      "fonts": ["node_modules/bootstrap/dist/fonts/"]
     }
   },
 };

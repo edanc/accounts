@@ -4,7 +4,7 @@
     "actioncable": "^5.0.0",
     "babel-preset-react": "^6.16.0",
     "bootstrap": "^3.3.7",
-    "breakfast-rails": "0.3.1",
+    "breakfast-rails": "0.4.0",
     "copycat-brunch": "^1.1.0",
     "jquery": "^3.1.0",
     "jquery-ujs": "^1.2.2",
