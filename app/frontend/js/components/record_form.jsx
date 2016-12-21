@@ -1,4 +1,5 @@
-var RecordForm = React.createClass({
+import React from 'react';
+const RecordForm = React.createClass({
   getInitialState: function() {
     return {
       title: '',
@@ -59,3 +60,5 @@ var RecordForm = React.createClass({
     );
   }
 });
+
+module.exports = RecordForm;

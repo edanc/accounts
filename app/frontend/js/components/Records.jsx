@@ -1,30 +1,14 @@
-//import React from 'react';
-const React = require("react");
+import React from 'react';
+import AmountBox from './amount_box';
+import RecordForm from './record_form';
 
 const Records = React.createClass({
-  render() {
-    return (
-      <div id="content">
-        <h1>React!</h1>
-        <div>
-          <a href="https://github.com/devlocker/breakfast">Breakfest Gem</a>
-          <a href="https://facebook.github.io/react/index.html">React Docs</a>
-        </div>
-      </div>
-    )
-  }
-});
-
-module.exports = Records;
-/*
-
-export default class Records extends React.Component {
   getInitialState: function() {
     return { records: this.props.data };
   },
 
   getDefaultProps: function() {
-    return { records: [] };
+    return { data: [] };
   },
 
   addRecord: function(record){
@@ -32,7 +16,6 @@ export default class Records extends React.Component {
     records.push(record);
     this.setState({records: records});
   },
-
 
   updateRecord: function(record, data) {
     var index = this.state.records.indexOf(record);
@@ -42,7 +25,7 @@ export default class Records extends React.Component {
   },
 
   credits: function(){
-    credits = this.state.records.filter(function(val){
+    const credits = this.state.records.filter(function(val){
       return val.amount >= 0
     });
     return credits.reduce (function(prev, curr){
@@ -102,12 +85,12 @@ export default class Records extends React.Component {
                 handleDeleteRecord={this.deleteRecord}
                 handleEditRecord={this.updateRecord}
               />
-              }.bind(this))}
+              }.bind(this)
+            )}
           </tbody>
         </table>
       </div>
-    );
-  }
+    )}
+});
 
-};
-*/
+module.exports = Records;
