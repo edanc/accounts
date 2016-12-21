@@ -1,4 +1,5 @@
 import React from 'react';
+import {amountFormat} from './util.js';
 
 const AmountBox = React.createClass({
   render: function() {

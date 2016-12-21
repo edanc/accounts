@@ -1,3 +1,4 @@
+import {amountFormat} from './util.js';
 var Record = React.createClass({
 
   getInitialState: function() {
