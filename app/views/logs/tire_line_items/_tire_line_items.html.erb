@@ -4,7 +4,7 @@
   <td> <%= tire_line_item.tire_type %></td>
   <td> <%= pretty_tire_size(tire_line_item.tire_size.size)%></td>
   <td> <%= tire_line_item.total_amount %></td>
-  <td>
+  <td class="snugfit">
     <% unless @log.summarize? %>
       <%= link_to(
         "delete",
