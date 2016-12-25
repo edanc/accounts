@@ -1,6 +1,7 @@
 import React from 'react';
 import AmountBox from './amount_box';
 import RecordForm from './record_form';
+import Record from './record';
 
 const Records = React.createClass({
   getInitialState: function() {

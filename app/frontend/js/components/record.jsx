@@ -1,6 +1,7 @@
+import React from 'react';
 import {amountFormat} from './util.js';
-var Record = React.createClass({
 
+const Record = React.createClass({
   getInitialState: function() {
     return { edit: false };
   },
