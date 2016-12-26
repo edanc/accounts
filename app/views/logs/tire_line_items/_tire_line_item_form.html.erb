@@ -19,11 +19,6 @@
     <td id="tire_sizes"><%= tli.text_field(:size)%></td>
     <%= hidden_field_tag :log_id, @log.id %>
     <td data="item-row">
-      <%= tli.number_field(
-        :total_amount,
-        class: ["form-control"],
-        placeholder: "$"
-      )%>
     </td>
     <td><%= tli.submit("add", id: :add_tli, class: [:btn]) %></td>
   <% end %>

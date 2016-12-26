@@ -1,7 +1,7 @@
 <%= form_for @log.labor_line_items.new, as: :labor_line_items, url: logs_labor_line_items_path(log_id: @log), method: :post do |f| %>
   <tr>
     <td><%= f.number_field :amount %></td>
-    <td><%= f.text_field :description %></td>
+    <td class"snugfit"><%= f.text_field :description %></td>
     <td class="snugfit"><%= f.submit("add", class: [:btn]) %></td>
   </tr>
 <% end %>

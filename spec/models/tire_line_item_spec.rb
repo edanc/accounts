@@ -5,13 +5,12 @@
 #  id           :integer          not null, primary key
 #  created_at   :datetime
 #  updated_at   :datetime
-#  units        :integer          not null
-#  total_amount :decimal(20, 2)   not null
-#  tire_type    :text             not null
-#  unit_amount  :text             not null
+#  units        :integer          default(0), not null
+#  tire_type    :text             default(""), not null
+#  unit_amount  :decimal(20, 2)   default(0.0), not null
 #  log_id       :integer          not null
 #  deleted_at   :datetime
-#  tire_size_id :integer          not null
+#  tire_size_id :integer
 #
 
 require 'rails_helper'

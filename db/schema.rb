@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214211522) do
+ActiveRecord::Schema.define(version: 20161226200211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20160214211522) do
   create_table "labor_line_items", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "log_id",                               null: false
-    t.decimal  "amount",      precision: 20, scale: 2, null: false
+    t.integer  "log_id",                                               null: false
+    t.decimal  "amount",      precision: 20, scale: 2, default: "0.0", null: false
     t.text     "description"
     t.datetime "deleted_at"
   end
@@ -42,11 +42,10 @@ ActiveRecord::Schema.define(version: 20160214211522) do
   create_table "tire_line_items", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "units",                                 null: false
-    t.decimal  "total_amount", precision: 20, scale: 2, null: false
-    t.text     "tire_type",                             null: false
-    t.text     "unit_amount",                           null: false
-    t.integer  "log_id",                                null: false
+    t.integer  "units",                                 default: 0,     null: false
+    t.text     "tire_type",                             default: "",    null: false
+    t.decimal  "unit_amount",  precision: 20, scale: 2, default: "0.0", null: false
+    t.integer  "log_id",                                                null: false
     t.datetime "deleted_at"
     t.integer  "tire_size_id"
   end
