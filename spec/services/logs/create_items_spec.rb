@@ -7,7 +7,6 @@ RSpec.describe Logs::CreateItems do
     "unit_amount"=>"15",
     "tire_type"=>"new",
     "size"=>"1955515",
-    "total_amount"=>"25"
     }
   }
 

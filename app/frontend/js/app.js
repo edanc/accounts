@@ -10,11 +10,11 @@ require("jquery-ujs");
 let App = {
   init() {
     document.addEventListener('turbolinks:load', () => {
-      ReactDOM.render(<Records />, document.querySelector('#records'));
+      ReactDOM.render(<Records />, document.getElementById('records'));
     });
 
     document.addEventListener('turbolinks:before-render', () => {
-      ReactDOM.unmountComponentAtNode(document.querySelector('#records'));
+      ReactDOM.unmountComponentAtNode(document.getElementById('records'));
     });
   }
 }

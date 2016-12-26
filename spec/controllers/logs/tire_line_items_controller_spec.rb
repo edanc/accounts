@@ -6,13 +6,10 @@ RSpec.describe Logs::TireLineItemsController, type: :controller do
       log_id: log.id,
       log: {
         tire_line_item: {
-          tire_size: {
-            size: "1955515"
-          },
+          size: "1955515",
           units: 1,
           unit_amount: 25.00,
           tire_type: :used,
-          total_amount: 25.00,
         }
       }
     }
@@ -33,7 +30,6 @@ RSpec.describe Logs::TireLineItemsController, type: :controller do
         unit_amount: 15.00,
         tire_type: :used,
         tire_size_id: size.id,
-        total_amount: 15.00
       )
       delete :destroy, id: line.id, log_id: log.id
       expect(log.tire_line_items.count).to eq 0

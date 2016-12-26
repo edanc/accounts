@@ -52,13 +52,6 @@ RSpec.describe LogsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new log as @log" do
-      get :new, {}, valid_session
-      expect(assigns(:log)).to be_a_new(Log)
-    end
-  end
-
   describe "GET #edit" do
     it "assigns the requested log as @log" do
       log = Log.create! valid_attributes

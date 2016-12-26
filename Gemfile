@@ -32,6 +32,8 @@ gem 'nokogiri'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'faye-websocket', '0.10.0'
 
+gem 'rails-controller-testing'
+
 group :development do
   gem 'pry-rails'
   gem "rspec"
